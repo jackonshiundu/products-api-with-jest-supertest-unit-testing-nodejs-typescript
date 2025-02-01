@@ -1,4 +1,5 @@
 import User, { TheUser } from "models/User.model";
+import { generateToken } from "utils/jwtUtils";
 import { comparePassword, hashPassword } from "utils/passwordUtils";
 
 // Create a new user with the given input and hashed password
@@ -22,7 +23,7 @@ export const createUSer = async (userInput: TheUser): Promise<TheUser> => {
 };
 
 // Log in a user by checking the provided credentials and returning a JWT token
-export const loginUUser = async (
+export const loginUser = async (
   email: string,
   password: string
 ): Promise<{ user: Omit<TheUser, "password">; token: string }> => {
