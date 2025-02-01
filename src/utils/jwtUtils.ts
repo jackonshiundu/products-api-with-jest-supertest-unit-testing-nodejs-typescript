@@ -36,7 +36,7 @@ export const generateToken = (payload: JWTPayload): string => {
 };
 
 // Middleware function to verify the JWT token from the request
-export const veriftToken = (
+export const verifyToken = (
   req: CustomRequest,
   res: Response,
   next: NextFunction

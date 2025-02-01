@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import dotenv from "dotenv";
 import connectDB from "./utils/DB";
+import routes from "./routes/index";
 
 dotenv.config();
 
@@ -28,6 +29,8 @@ app.get("/", async (req: express.Request, res: express.Response) => {
 
 const PORT = process.env.PORT || 5050;
 
+//routes
+app.use("/api/v1/", routes());
 //using the connect db to connect to the data bse and only after a successful connection is when our app will start LIstening. We are using then and catch because the unction returns a promise.
 connectDB()
   .then(() => {
