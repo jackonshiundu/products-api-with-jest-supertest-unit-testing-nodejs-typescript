@@ -28,6 +28,7 @@ app.get("/", async (req: express.Request, res: express.Response) => {
 
 const PORT = process.env.PORT || 5050;
 
+//using the connect db to connect to the data bse and only after a successful connection is when our app will start LIstening. We are using then and catch because the unction returns a promise.
 connectDB()
   .then(() => {
     app.listen(PORT, () => {
