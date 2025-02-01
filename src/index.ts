@@ -1,6 +1,10 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import dotenv from "dotenv";
+import connectDB from "./utils/DB";
+
+dotenv.config();
 
 const app = express();
 
@@ -22,10 +26,17 @@ app.get("/", async (req: express.Request, res: express.Response) => {
   }
 });
 
-const PORT = process.env.PORT || 8800;
+const PORT = process.env.PORT || 5050;
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+connectDB()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+    process.exit(1);
+  });
 
 export default app;
