@@ -5,11 +5,11 @@ import {
   getAllUsers,
   loginUser,
   updateUser,
-} from "controllers/User.controller";
+} from "../controllers/User.controller";
 import {
   verifyTokenAndAdmin,
   verifyTokenAndAuthorization,
-} from "utils/jwtUtils";
+} from "../utils/jwtUtils";
 
 export const userRoutes = (router: express.Router) => {
   // Route for creating a new user

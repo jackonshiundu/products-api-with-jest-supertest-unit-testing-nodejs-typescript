@@ -5,8 +5,8 @@ import {
   getAllProducts,
   getProductById,
   updateProduct,
-} from "controllers/Product.controller";
-import { verifyToken, verifyTokenAndAdmin } from "utils/jwtUtils";
+} from "../controllers/Product.controller";
+import { verifyToken, verifyTokenAndAdmin } from "../utils/jwtUtils";
 
 const productRoutes = (router: express.Router) => {
   // Route for getting all products

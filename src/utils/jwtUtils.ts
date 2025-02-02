@@ -1,7 +1,7 @@
 // Importing necessary modules
 import { Types } from "mongoose"; // For MongoDB object ID manipulation
 import jwt, { VerifyErrors } from "jsonwebtoken"; // For handling JSON Web Tokens
-import { NextFunction } from "express"; // For Express middleware types
+import { NextFunction, Request, Response } from "express"; // For Express middleware types
 
 // Defining the payload structure for the JWT
 type JWTPayload = {
@@ -30,7 +30,7 @@ export const generateToken = (payload: JWTPayload): string => {
 
   // Generating the token using the secret key
   const token = jwt.sign(payload, process.env.JWT_SEC, {
-    expiresIn: process.env.JWT_EXPIRY_PERIOD,
+    expiresIn: "1d",
   });
   return token;
 };

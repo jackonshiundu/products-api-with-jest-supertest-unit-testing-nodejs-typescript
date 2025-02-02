@@ -1,4 +1,4 @@
-import Product, { TheProduct } from "models/Product.models";
+import Product, { TheProduct } from "../models/Product.models";
 
 // Create a new product with the provided input
 export const createProduct = async (

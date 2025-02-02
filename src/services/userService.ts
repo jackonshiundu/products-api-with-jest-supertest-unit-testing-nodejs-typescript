@@ -1,6 +1,6 @@
-import User, { TheUser } from "models/User.model";
-import { generateToken } from "utils/jwtUtils";
-import { comparePassword, hashPassword } from "utils/passwordUtils";
+import User, { TheUser } from "../models/User.model";
+import { generateToken } from "../utils/jwtUtils";
+import { comparePassword, hashPassword } from "../utils/passwordUtils";
 
 // Create a new user with the given input and hashed password
 export const createUSer = async (userInput: TheUser): Promise<TheUser> => {
@@ -44,7 +44,7 @@ export const loginUser = async (
 
     // Generate a JWT token with user details
     const token = generateToken({
-      id: user._id,
+      id: user.id,
       username: user.username,
       email: user.email,
       isAdmin: user.isAdmin,
@@ -76,7 +76,7 @@ export const getAllUsers = async (): Promise<TheUser[]> => {
 };
 
 // Retrieve a user by their ID, including their saved products
-export const getUserById = async (userId: string): Promise<IUser | null> => {
+export const getUserById = async (userId: string): Promise<TheUser | null> => {
   try {
     // Find the user by their ID and populate their savedProducts field
     const user = await User.findById(userId).populate("savedProducts");
