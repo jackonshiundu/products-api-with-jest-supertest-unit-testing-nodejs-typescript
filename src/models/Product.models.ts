@@ -3,6 +3,7 @@ import mongoose, { Schema } from "mongoose";
 // Define the interface for Product document
 
 export interface TheProduct extends Document {
+  _id: string;
   title: string;
   description: string;
   image: string;
