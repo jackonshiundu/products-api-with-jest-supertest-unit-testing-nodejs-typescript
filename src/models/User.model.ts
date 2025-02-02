@@ -15,7 +15,7 @@ export interface TheUser extends Document {
 
 const userSchema: Schema<TheUser> = new Schema(
   {
-    email: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
     username: { type: String, required: true },
     password: { type: String, required: true },
     isAdmin: { type: Boolean, default: false },
