@@ -5,7 +5,7 @@ import * as UserServices from "../services/userService";
 export const createUser = async (req: Request, res: Response) => {
   try {
     // Call the createUser service to create a new user with the request body data
-    const newUser = await UserServices.createUSer(req.body);
+    const newUser = await UserServices.createUser(req.body);
 
     // Respond with the newly created user and a 201 status code
     res.status(201).json(newUser);

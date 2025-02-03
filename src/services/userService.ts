@@ -3,7 +3,7 @@ import { generateToken } from "../utils/jwtUtils";
 import { comparePassword, hashPassword } from "../utils/passwordUtils";
 
 // Create a new user with the given input and hashed password
-export const createUSer = async (userInput: TheUser): Promise<TheUser> => {
+export const createUser = async (userInput: TheUser): Promise<TheUser> => {
   try {
     // Hash the user's password before saving it
     const hashedPassword = await hashPassword(userInput.password);
@@ -117,4 +117,8 @@ export const deleteUser = async (userId: string): Promise<void> => {
     // Handle errors during user deletion
     throw new Error(`Error deleting user: ${error.message}`);
   }
+};
+export const populateUser = async (user: TheUser): Promise<TheUser> => {
+  // Your implementation here
+  return user;
 };
