@@ -4,7 +4,7 @@ import jwt, { VerifyErrors } from "jsonwebtoken"; // For handling JSON Web Token
 import { NextFunction, Request, Response } from "express"; // For Express middleware types
 
 // Defining the payload structure for the JWT
-type JWTPayload = {
+export type JWTPayload = {
   id: Types.ObjectId; // The user's MongoDB ID
   username: string; // The user's username
   email: string; // The user's email

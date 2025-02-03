@@ -27,7 +27,7 @@ app.get("/", async (req: express.Request, res: express.Response) => {
   }
 });
 
-const PORT = 8000;
+const PORT = 8001;
 
 //routes
 app.use("/api/v1/", routes());
