@@ -26,26 +26,28 @@ app.get("/", async (req: express.Request, res: express.Response) => {
     console.log(error);
   }
 });
+app.use("/api/v1/", routes());
 
-const PORT = 8003;
+const PORT = 8009;
 // Check if it's not a test environment before starting the server
 if (!process.env.TEST_ENV) {
-  app.listen(9000, () => {
+  app.listen(9002, () => {
     console.log(`Backend server is running at port 9000`);
   });
+} else {
+  connectDB()
+    .then(() => {
+      app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+      process.exit(1);
+    });
 }
 //routes
-app.use("/api/v1/", routes());
+
 //using the connect db to connect to the data bse and only after a successful connection is when our app will start LIstening. We are using then and catch because the unction returns a promise.
-connectDB()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
-  })
-  .catch((error) => {
-    console.log(error);
-    process.exit(1);
-  });
 
 export default app;
