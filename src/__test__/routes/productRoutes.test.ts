@@ -114,7 +114,7 @@ describe("User Routes", () => {
       title: "Updated Product",
       description: "Updated Product Description",
     };
-
+    console.log("pd" + productId);
     const response = await request(test_server)
       .put(`/api/v1/products/update/${productId}`)
       .set("token", `Bearer ${adminToken}`)
