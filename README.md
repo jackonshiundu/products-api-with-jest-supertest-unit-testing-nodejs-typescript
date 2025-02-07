@@ -76,15 +76,20 @@ Dotenv: For managing environment variables.
 
 # Setup and Installation
 1.Clone the Repository:
+```
 https://github.com/jackonshiundu/products-api-with-jest-supertest-unit-testing-nodejs-typescript.git
+```
 2.Install Dependencies:
+```
 npm install
+```
 3.Set Up Environment Variables:
 Create a .env file in the root directory and add the following variables:
+```
 PORT=3000
 MONGO_URI=mongodb://localhost:27017/products_db
 JWT_SECRET=your_jwt_secret_key
-
+```
 # Running the API
 To start the API in development mode:
 npm run dev
