@@ -1,4 +1,4 @@
-Products API with Unit Testing
+# Products API with Unit Testing
 This project is a Node.js and TypeScript based RESTful API for managing products. It allows clients to interact with a database to perform CRUD (Create, Retrieve, Update, Delete) operations on products. The API is secured using JWT (JSON Web Token) authentication to ensure only authorized users can access or manipulate data.
 
 The project also includes unit testing using Jest and Supertest to ensure the reliability and correctness of the codebase.
@@ -33,9 +33,11 @@ Modular Structure: Organized into models, services, controllers, routes, and uti
 
 # Project Structure
 The project is structured as follows:
+```
 products-api/
 ├── __tests__/                  # Unit tests for all components
 │   ├── controllers/            # Tests for controllers
+|   ├── routes/                 # Tests for routes
 │   ├── services/               # Tests for services
 │   ├── utils/                  # Tests for utility functions
 │   ├── app.test.ts             # Test for the main app
@@ -52,7 +54,7 @@ products-api/
 ├── package.json                # Project dependencies and scripts
 ├── tsconfig.json               # TypeScript configuration
 ├── README.md                   # Project documentation
-
+```
 # Technologies Used
 Node.js: Runtime environment for the API.
 
