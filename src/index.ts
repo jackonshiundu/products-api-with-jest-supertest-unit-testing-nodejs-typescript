@@ -2,8 +2,8 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import dotenv from "dotenv";
-import connectDB from "./utils/DB";
 import routes from "./routes/index";
+import mongoose from "mongoose";
 
 dotenv.config();
 
@@ -35,16 +35,16 @@ if (!process.env.TEST_ENV) {
     console.log(`Backend server is running at port 9000`);
   });
 } else {
-  connectDB()
+  if (!process.env.MONGODB_URL) {
+    throw new Error("MONGODB_URL environment variable is not defined");
+  }
+
+  mongoose
+    .connect(process.env.MONGODB_URL)
     .then(() => {
-      app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`);
-      });
+      console.log("MongoDB connected to the backend successfully");
     })
-    .catch((error) => {
-      console.log(error);
-      process.exit(1);
-    });
+    .catch((err) => console.log(err));
 }
 //routes
 
